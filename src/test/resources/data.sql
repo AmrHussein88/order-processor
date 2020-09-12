@@ -1,0 +1,1 @@
+insert into orders (id ,create_date,version,price,quantity,symbol) values(2, '2020-09-11',0,2.8082639022120865,2,'HUAWEI');
