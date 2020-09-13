@@ -13,14 +13,15 @@ public class OrderProcessorController {
 
     @Autowired
     private OrderProcessorService orderProcessorService;
+
     @PostMapping
-    public Orders processOrder(@RequestBody OrderDto orderDto){
+    public Orders processOrder(@RequestBody OrderDto orderDto) {
         return orderProcessorService.process(orderDto);
     }
 
     @GetMapping("/metrics")
     @ResponseBody
-    public OrdersMetricsResponse getOrdersMetrics(){
+    public OrdersMetricsResponse getOrdersMetrics() {
         return orderProcessorService.getOrdersMetrics();
     }
 }

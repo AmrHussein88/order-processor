@@ -6,5 +6,6 @@ import com.stockexchange.orderprocessor.domain.Orders;
 
 public interface OrderProcessorService {
     Orders process(OrderDto orderDto);
+
     OrdersMetricsResponse getOrdersMetrics();
 }

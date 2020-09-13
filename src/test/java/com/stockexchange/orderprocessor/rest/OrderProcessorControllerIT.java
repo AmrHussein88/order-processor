@@ -16,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import static org.junit.jupiter.api.Assertions.*;
 
 @RunWith(SpringRunner.class)
-@TestPropertySource(locations="classpath:application-test.properties")
+@TestPropertySource(locations = "classpath:application-test.properties")
 @SpringBootTest(classes = OrderProcessorApplication.class, webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class OrderProcessorControllerIT {
 
@@ -25,13 +25,14 @@ public class OrderProcessorControllerIT {
     private TestRestTemplate restTemplate = new TestRestTemplate();
     private HttpHeaders headers = new HttpHeaders();
     private String url;
+
     @Before
-    public void setup(){
+    public void setup() {
         url = "http://localhost:" + port + "/orders";
     }
 
     @Test
-    public void processOrder_Test(){
+    public void processOrder_Test() {
         OrderDto orderDto = new OrderDto();
         orderDto.setSymbol("APPLE");
         orderDto.setQuantity(3);
@@ -45,7 +46,7 @@ public class OrderProcessorControllerIT {
     }
 
     @Test
-    public void getOrdersMetrics_Test(){
+    public void getOrdersMetrics_Test() {
         ResponseEntity<OrdersMetricsResponse> response = restTemplate.getForEntity(
                 url + "/metrics", OrdersMetricsResponse.class);
         assertEquals(HttpStatus.OK, response.getStatusCode());

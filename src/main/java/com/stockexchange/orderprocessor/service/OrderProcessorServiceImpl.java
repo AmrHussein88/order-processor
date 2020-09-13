@@ -29,7 +29,7 @@ public class OrderProcessorServiceImpl implements OrderProcessorService {
     }
 
     private Orders createOrderEntity(OrderDto orderDto) {
-        Orders order  = new Orders();
+        Orders order = new Orders();
         order.setPrice(orderDto.getPrice());
         order.setQuantity(orderDto.getQuantity());
         order.setSymbol(orderDto.getSymbol());
