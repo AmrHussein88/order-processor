@@ -1,0 +1,25 @@
+version: '3.7'
+services:
+  order-processor:
+    image: order-processor:0.0.1-SNAPSHOT
+    ports:
+      - "8080:8080"
+    restart: always
+    networks:
+      - order-processor-network
+
+  order-generator:
+    image: order-generator:0.0.1-SNAPSHOT
+    ports:
+      - "8100:8100"
+    restart: always
+    environment:
+      ORDER_PROCESSOR_BASE_URL: http://order-processor:8080/
+    depends_on:
+      - order-processor
+    networks:
+      - order-processor-network
+
+# Networks to be created to facilitate communication between containers
+networks:
+  order-processor-network:
