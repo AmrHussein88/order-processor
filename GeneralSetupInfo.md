@@ -1,4 +1,5 @@
 To run the stock exchange microservices , use one of the below options :
+P.S jdk8 is used
 
 To run it locally :
    1 -In the order-processor microservice directory run : mvn clean install
